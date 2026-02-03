@@ -1,6 +1,4 @@
 ---
-import '../styles/global.css';
-
 export interface Props {
   title: string;
   description?: string;
@@ -10,16 +8,18 @@ export interface Props {
 const { title, description = "Product Manager with a focus on AI agents and generative AI, building products that drive impact.", image = "/images/gabri.jpg" } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const imagePath = "/images/gabri.jpg";
+// Get base path from environment variables
+const basePath = '';
+const cssPath = `${basePath}/src/styles/global.css`;
+const imagePath = `${basePath}/images/gabri.jpg`;
 ---
 
 <!doctype html>
-<html lang="en" class="dark" style="color-scheme: dark;">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     
@@ -50,6 +50,9 @@ const imagePath = "/images/gabri.jpg";
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href={cssPath}>
   </head>
   <body>
     <!-- Skip Link -->

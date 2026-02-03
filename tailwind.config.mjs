@@ -1,11 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-  darkMode: 'class', // Use class-based dark mode (we force dark with <html class="dark">)
   theme: {
     extend: {
       colors: {
-        // SINGLE SOURCE OF TRUTH - All colors defined here only
+        // Dark theme colors
         'bg': '#0a0e1a',
         'surface': '#131827',
         'text': '#e8eaf4',
@@ -48,20 +47,5 @@ export default {
       }
     },
   },
-  plugins: [
-    // Auto-generate CSS variables from theme colors
-    function({ addBase, theme }) {
-      const colors = theme('colors');
-      const cssVars = Object.entries(colors).reduce((acc, [key, value]) => {
-        if (typeof value === 'string') {
-          acc[`--${key}`] = value;
-        }
-        return acc;
-      }, {});
-      
-      addBase({
-        ':root': cssVars
-      });
-    }
-  ],
+  plugins: [],
 }

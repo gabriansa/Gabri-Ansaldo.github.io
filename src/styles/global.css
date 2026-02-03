@@ -1,13 +1,29 @@
-/* 
- * Design Tokens - Auto-generated from tailwind.config.mjs
- * DO NOT manually edit color values here!
- * All colors are defined in tailwind.config.mjs as the single source of truth.
- * Tailwind automatically generates CSS variables (--bg, --accent, etc.) that we use below.
- */
-
-/* Force dark color scheme */
+/* Design Tokens */
 :root {
-  color-scheme: dark;
+  --bg: #0a0e1a;
+  --surface: #131827;
+  --text: #e8eaf4;
+  --muted: #9ca3af;
+  --accent: #818cf8;
+  --accent-2: #fbbf24;
+  --link: #a78bfa;
+  --stroke: #1e293b;
+  --focus: #c4b5fd;
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --accent: #6366f1;
+    --accent-2: #f59e0b;
+    --link: #8b5cf6;
+    --stroke: #e2e8f0;
+    --focus: #a78bfa;
+  }
 }
 
 /* Base Reset */
@@ -226,11 +242,17 @@ a:hover {
 .header {
   position: sticky;
   top: 0;
-  background: color-mix(in srgb, var(--bg) 95%, transparent);
+  background: rgba(10, 14, 26, 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--stroke);
   z-index: 100;
   padding: 1rem 0;
+}
+
+@media (prefers-color-scheme: light) {
+  .header {
+    background: rgba(248, 250, 252, 0.95);
+  }
 }
 
 /* Navigation Active States */

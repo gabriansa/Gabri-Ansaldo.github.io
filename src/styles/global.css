@@ -226,7 +226,7 @@ a:hover {
 .header {
   position: sticky;
   top: 0;
-  background: rgba(10, 14, 26, 0.95);
+  background: color-mix(in srgb, var(--bg) 95%, transparent);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--stroke);
   z-index: 100;

@@ -42,7 +42,7 @@ import Terminal from '../components/Terminal.astro';
               </div>
               <div class="flex flex-wrap gap-4">
                 <a 
-                  href="#" 
+                  href="https://www.openmodel.co/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   class="btn"
@@ -50,7 +50,7 @@ import Terminal from '../components/Terminal.astro';
                   View Website →
                 </a>
                 <a 
-                  href="#" 
+                  href="https://www.proquest.com/openview/e45972149b297cfcec9a239dcca32bcc/1?cbl=18750&diss=y&pq-origsite=gscholar" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   class="btn btn-secondary"
@@ -101,7 +101,7 @@ import Terminal from '../components/Terminal.astro';
               </div>
               <div class="flex flex-wrap gap-4">
                 <a 
-                  href="#" 
+                  href="https://gabriansa.github.io/investi/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   class="btn"
@@ -109,7 +109,7 @@ import Terminal from '../components/Terminal.astro';
                   View Website →
                 </a>
                 <a 
-                  href="https://github.com/gabriansa" 
+                  href="https://github.com/gabriansa/investi" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   class="btn btn-secondary"
@@ -155,7 +155,7 @@ import Terminal from '../components/Terminal.astro';
               </div>
               <div class="flex flex-wrap gap-4">
                 <a 
-                  href="https://github.com/gabriansa" 
+                  href="https://github.com/gabriansa/explicit-agent" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   class="btn"
@@ -177,6 +177,107 @@ import Terminal from '../components/Terminal.astro';
           </div>
         </Card>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Projects Section -->
+  <section class="section bg-surface border-y border-stroke">
+    <div class="container">
+      <SectionHeading 
+        eyebrow="Academic Research"
+        title="Multi-Agent Systems Research"
+        subtitle="Open-source frameworks for multi-robot collaboration and human-robot interaction"
+      />
+      
+      <div class="space-y-8">
+        <!-- Collaborative Gym -->
+        <Card>
+          <div class="grid-2 items-start">
+            <div>
+              <h3 class="text-accent mb-3">Collaborative Gym: Multi-Robot Interaction Framework</h3>
+              <p class="text-muted mb-4">
+                An open-source framework for modeling and simulating multi-robot interaction in cooperative tasks. 
+                Built with OpenAI Gym, this environment enables researchers to develop and test multi-agent 
+                reinforcement learning algorithms for collaborative robotics scenarios.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <SkillBadge skill="Python" />
+                <SkillBadge skill="OpenAI Gym" />
+                <SkillBadge skill="Multi-Agent RL" />
+                <SkillBadge skill="Robotics" />
+                <SkillBadge skill="Simulation" />
+              </div>
+              <div class="space-y-2 text-sm mb-4">
+                <p><strong>Research Focus:</strong> Multi-robot cooperation and coordination</p>
+                <p><strong>Institution:</strong> MAGICS Lab, Northeastern University</p>
+              </div>
+              <div class="flex flex-wrap gap-4">
+                <a 
+                  href="https://github.com/gabriansa/collaborative-gym" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  GitHub →
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <div class="w-48 min-h-32 bg-surface border border-stroke rounded-lg flex flex-col items-center justify-center p-4">
+                <span class="text-muted text-sm mb-3 font-medium">Research Area</span>
+                <div class="flex flex-wrap gap-1 justify-center">
+                  <span class="badge badge-secondary text-xs">Multi-Robot</span>
+                  <span class="badge badge-secondary text-xs">Cooperation</span>
+                  <span class="badge badge-secondary text-xs">RL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        <!-- Reaching Task -->
+        <Card>
+          <div class="grid-2 items-start">
+            <div>
+              <h3 class="text-accent mb-3">Reaching Task: Human-Robot Collaboration</h3>
+              <p class="text-muted mb-4">
+                A multi-agent reinforcement learning framework for human-robot collaboration that achieved 95% 
+                accuracy in collaborative reaching tasks. This research explores how robots can learn to anticipate 
+                and coordinate with human partners in shared workspaces.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <SkillBadge skill="Python" />
+                <SkillBadge skill="Multi-Agent RL" />
+                <SkillBadge skill="Human-Robot Collaboration" />
+                <SkillBadge skill="Deep Learning" />
+              </div>
+              <div class="space-y-2 text-sm mb-4">
+                <p><strong>Achievement:</strong> 95% accuracy in human-robot collaboration task</p>
+                <p><strong>Institution:</strong> MAGICS Lab, Northeastern University</p>
+              </div>
+              <div class="flex flex-wrap gap-4">
+                <a 
+                  href="https://github.com/gabriansa/reaching-task" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  GitHub →
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <div class="w-48 min-h-32 bg-surface border border-stroke rounded-lg flex flex-col items-center justify-center p-4">
+                <span class="text-muted text-sm mb-3 font-medium">Impact</span>
+                <div class="flex flex-wrap gap-1 justify-center">
+                  <span class="badge badge-secondary text-xs">95% Accuracy</span>
+                  <span class="badge badge-secondary text-xs">HRC</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
       </div>
     </div>
   </section>

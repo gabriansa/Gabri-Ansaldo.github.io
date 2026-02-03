@@ -5,6 +5,11 @@
  * Tailwind automatically generates CSS variables (--bg, --accent, etc.) that we use below.
  */
 
+/* Force dark color scheme */
+:root {
+  color-scheme: dark;
+}
+
 /* Base Reset */
 * {
   box-sizing: border-box;

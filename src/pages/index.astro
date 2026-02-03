@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Terminal from '../components/Terminal.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Card from '../components/Card.astro';
+import SkillBadge from '../components/SkillBadge.astro';
+---
+
+<Layout title="Gabri Ansaldo - Product Manager with a focus on AI agents and generative AI.">
+  <!-- Hero Section -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2 items-center">
+        <div>
+          <div class="eyebrow">Product Manager · Generative AI</div>
+          <h1 class="mb-4">I build products with a focus on AI agents and generative AI.</h1>
+         
+          <div class="flex flex-wrap gap-4">
+            <a href="/about/" class="btn">About me</a>
+            <a href="/projects/" class="btn btn-secondary">Projects</a>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <img 
+            src="/images/gabri.jpg" 
+            alt="Portrait of Gabri Ansaldo" 
+            class="portrait w-64 h-64 object-cover"
+            width="256"
+            height="256"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Terminal Strip -->
+  <section class="section bg-surface border-y border-stroke">
+    <div class="container">
+      <Terminal 
+        lines={[
+          'whoami',
+          'echo "Gabri Ansaldo - Product Manager"',
+          'ls -la ~/projects/',
+          'cat ~/.profile | grep -i "agent"',
+          'echo "Building with AI Agents & Gen AI"'
+        ]}
+        prefix="$"
+        loop={true}
+      />
+    </div>
+  </section>
+
+  <!-- Highlights Section -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading 
+        eyebrow="Recent Work"
+        title="Product & AI Development"
+        subtitle="Products and agentic systems I've built to drive business impact"
+      />
+      
+      <div class="space-y-8">
+        <!-- Motorola Card -->
+        <Card>
+          <h3 class="text-accent mb-3">Motorola Solutions - Product Manager, Body-Worn Cameras</h3>
+          <p class="text-muted mb-4">
+            Led product strategy for body-worn camera enterprise deals ($1M-$20M each), partnering with sales 
+            to prioritize features for workflows, customizations, and security. Launched an Edge AI voice-tagging 
+            feature that reduced officer data entry time by 75%.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <SkillBadge skill="Product Strategy" />
+            <SkillBadge skill="Edge AI" />
+            <SkillBadge skill="Enterprise Sales" />
+            <SkillBadge skill="Voice UX" />
+            <SkillBadge skill="C2PA Standards" />
+            <SkillBadge skill="Gen AI Safeguards" />
+          </div>
+          <div class="space-y-2 text-sm">
+            <p><strong>Role:</strong> Product Manager</p>
+            <p><strong>Duration:</strong> April 2024 - January 2026</p>
+            <p><strong>Impact:</strong> Retained $50M in annual revenue through strategic End-of-Life migration with 90% retention rate</p>
+          </div>
+        </Card>
+
+        <!-- AgentSpeak Project Card -->
+        <Card>
+          <h3 class="text-accent mb-3">AgentSpeak: Agentic Simulation Framework</h3>
+          <p class="text-muted mb-4">
+            Designed a 'Market Simulation' platform capable of modeling 100k consumer personas to test policies, 
+            pricing, and messaging in realistic scenarios. Evaluated agent alignment, consistency, and emergent 
+            behaviors through statistical analysis for reliable, interpretable outcomes.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <SkillBadge skill="LangChain" />
+            <SkillBadge skill="Python" />
+            <SkillBadge skill="LLMs" />
+            <SkillBadge skill="Multi-Agent" />
+            <SkillBadge skill="Claude Code" />
+            <SkillBadge skill="Simulation" />
+          </div>
+          <div class="space-y-2 text-sm">
+            <p><strong>Scale:</strong> 100k consumer persona simulations</p>
+            <p><strong>Focus:</strong> Market simulation, policy testing, agent alignment analysis</p>
+          </div>
+          <a href="/projects/" class="text-accent hover:text-text transition-colors">Learn more →</a>
+        </Card>
+      </div>
+    </div>
+  </section>
+</Layout>

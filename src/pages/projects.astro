@@ -1,0 +1,200 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Card from '../components/Card.astro';
+import SkillBadge from '../components/SkillBadge.astro';
+import Terminal from '../components/Terminal.astro';
+---
+
+<Layout title="Projects - Gabri Ansaldo" description="Generative AI projects - AgentSpeak, Investi, Explicit Agent.">
+  
+  <section class="section">
+    <div class="container">
+      <SectionHeading 
+        eyebrow="Projects"
+        title="Generative AI Development"
+        subtitle="Agentic systems, multi-agent frameworks, and AI tools I've built"
+      />
+      
+      <div class="space-y-8">
+        <!-- AgentSpeak Project -->
+        <Card>
+          <div class="grid-2 items-start">
+            <div>
+              <h3 class="text-accent mb-3">AgentSpeak: Agentic Simulation Framework</h3>
+              <p class="text-muted mb-4">
+                A 'Market Simulation' platform capable of modeling 100k consumer personas to test policies, 
+                pricing, and messaging in realistic scenarios. Evaluated agent alignment, consistency, and 
+                emergent behaviors through statistical analysis to ensure reliable, realistic, and interpretable outcomes.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <SkillBadge skill="LangChain" />
+                <SkillBadge skill="Python" />
+                <SkillBadge skill="LLMs" />
+                <SkillBadge skill="Agents" />
+                <SkillBadge skill="Claude Code" />
+                <SkillBadge skill="Statistical Analysis" />
+              </div>
+              <div class="space-y-2 text-sm mb-4">
+                <p><strong>Scale:</strong> 100k consumer persona simulations</p>
+                <p><strong>Use Cases:</strong> Policy testing, pricing strategies, marketing messaging</p>
+                <p><strong>Focus:</strong> Agent alignment, consistency, emergent behavior analysis</p>
+              </div>
+              <div class="flex flex-wrap gap-4">
+                <a 
+                  href="#" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  View Website →
+                </a>
+                <a 
+                  href="#" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn btn-secondary"
+                >
+                  Read Paper →
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <div class="w-48 min-h-32 bg-surface border border-stroke rounded-lg flex flex-col items-center justify-center p-4">
+                <span class="text-muted text-sm mb-3 font-medium">Capabilities</span>
+                <div class="flex flex-wrap gap-1 justify-center">
+                  <span class="badge badge-secondary text-xs">100k Personas</span>
+                  <span class="badge badge-secondary text-xs">Policy Testing</span>
+                  <span class="badge badge-secondary text-xs">Market Sim</span>
+                  <span class="badge badge-secondary text-xs">Agent Alignment</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        <!-- Investi Project -->
+        <Card>
+          <div class="grid-2 items-start">
+            <div>
+              <h3 class="text-accent mb-3">Investi: Autonomous Investing System</h3>
+              <p class="text-muted mb-4">
+                An autonomous investing system using multi-agent collaboration (Researcher, Analyst, Trader) 
+                to execute logic-based trading strategies without human intervention. Features Alpaca APIs for 
+                execution, PostgreSQL with RAG for memory search and state persistence, and LangSmith tracing 
+                for observable workflows.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <SkillBadge skill="Python" />
+                <SkillBadge skill="OpenAI Agent SDK" />
+                <SkillBadge skill="Claude Code" />
+                <SkillBadge skill="APIs" />
+                <SkillBadge skill="PostgreSQL" />
+                <SkillBadge skill="RAG" />
+                <SkillBadge skill="LangSmith" />
+              </div>
+              <div class="space-y-2 text-sm mb-4">
+                <p><strong>Architecture:</strong> Multi-agent (Researcher, Analyst, Trader)</p>
+                <p><strong>Execution:</strong> Alpaca APIs for trading</p>
+                <p><strong>Memory:</strong> PostgreSQL with RAG for state persistence</p>
+                <p><strong>Observability:</strong> LangSmith tracing for workflow monitoring</p>
+              </div>
+              <div class="flex flex-wrap gap-4">
+                <a 
+                  href="#" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  View Website →
+                </a>
+                <a 
+                  href="https://github.com/gabriansa" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn btn-secondary"
+                >
+                  GitHub →
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <div class="w-48 min-h-32 bg-surface border border-stroke rounded-lg flex flex-col items-center justify-center p-4">
+                <span class="text-muted text-sm mb-3 font-medium">Agents</span>
+                <div class="flex flex-wrap gap-1 justify-center">
+                  <span class="badge badge-secondary text-xs">Researcher</span>
+                  <span class="badge badge-secondary text-xs">Analyst</span>
+                  <span class="badge badge-secondary text-xs">Trader</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        <!-- Explicit Agent Project -->
+        <Card>
+          <div class="grid-2 items-start">
+            <div>
+              <h3 class="text-accent mb-3">Explicit Agent: Minimalist Agent Framework</h3>
+              <p class="text-muted mb-4">
+                A minimalist agent framework that exposes all agent logic, tool calls, and state management, 
+                enabling full transparency and user control over agent behavior. Features modular tools and 
+                state management for specific context persistence across complex multi-step tasks.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <SkillBadge skill="Python" />
+                <SkillBadge skill="OpenRouter" />
+                <SkillBadge skill="LiteLLM" />
+                <SkillBadge skill="State Management" />
+                <SkillBadge skill="Modular Tools" />
+              </div>
+              <div class="space-y-2 text-sm mb-4">
+                <p><strong>Philosophy:</strong> Full transparency and user control</p>
+                <p><strong>Features:</strong> Exposed agent logic, tool calls, state management</p>
+                <p><strong>Design:</strong> Modular tools for multi-step task persistence</p>
+              </div>
+              <div class="flex flex-wrap gap-4">
+                <a 
+                  href="https://github.com/gabriansa" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  GitHub →
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <div class="w-48 min-h-32 bg-surface border border-stroke rounded-lg flex flex-col items-center justify-center p-4">
+                <span class="text-muted text-sm mb-3 font-medium">Core Principles</span>
+                <div class="flex flex-wrap gap-1 justify-center">
+                  <span class="badge badge-secondary text-xs">Transparency</span>
+                  <span class="badge badge-secondary text-xs">Control</span>
+                  <span class="badge badge-secondary text-xs">Minimalist</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Terminal Strip -->
+  <section class="section bg-surface border-y border-stroke">
+    <div class="container">
+      <Terminal 
+        lines={[
+          'cd ~/projects && ls -la',
+          'python -m agentspeak --personas 100000',
+          'investi --mode autonomous --trace langsmith',
+          'echo "Building the future of agentic AI"'
+        ]}
+        prefix="$"
+        loop={true}
+      />
+    </div>
+  </section>
+ 
+</Layout>

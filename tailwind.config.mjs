@@ -4,15 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Dark theme colors
-        'bg': '#0f1115',
-        'surface': '#151821',
-        'text': '#e8ecf2',
-        'muted': '#A6AEC1',
-        'accent': '#39d98a',
-        'link': '#7cc7ff',
-        'stroke': '#212632',
-        'focus': '#62f1b1',
+        // SINGLE SOURCE OF TRUTH - All colors defined here only
+        'bg': '#0a0e1a',
+        'surface': '#131827',
+        'text': '#e8eaf4',
+        'muted': '#9ca3af',
+        'accent': '#818cf8',
+        'accent-2': '#fbbf24',
+        'link': '#a78bfa',
+        'stroke': '#1e293b',
+        'focus': '#c4b5fd',
       },
       fontFamily: {
         'mono': ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
@@ -46,5 +47,20 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    // Auto-generate CSS variables from theme colors
+    function({ addBase, theme }) {
+      const colors = theme('colors');
+      const cssVars = Object.entries(colors).reduce((acc, [key, value]) => {
+        if (typeof value === 'string') {
+          acc[`--${key}`] = value;
+        }
+        return acc;
+      }, {});
+      
+      addBase({
+        ':root': cssVars
+      });
+    }
+  ],
 }

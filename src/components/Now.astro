@@ -1,0 +1,113 @@
+---
+const items = [
+  { label: 'Reading', value: 'Anthropic\'s research on agent alignment & sleeper agents' },
+  { label: 'Building', value: 'Investi v2 — adding a risk officer agent that can veto trades' },
+  { label: 'Thinking about', value: 'How evals become a moat, not a checkbox' },
+  { label: 'Listening to', value: 'Practitioners shipping agents in regulated industries' },
+];
+---
+
+<section class="now">
+  <div class="wrap now__inner">
+    <div class="now__head reveal">
+      <span class="eyebrow">/now</span>
+      <h2 class="now__title">
+        What I'm <span class="serif-italic">doing this month.</span>
+      </h2>
+      <p class="now__sub">A snapshot, not a manifesto. Updated when it changes.</p>
+    </div>
+    <ul class="now__list">
+      {items.map((it) => (
+        <li class="now__item reveal">
+          <span class="now__label">{it.label}</span>
+          <span class="now__value">{it.value}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .now {
+    padding: clamp(5rem, 9vw, 9rem) 0;
+  }
+
+  .now__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  @media (max-width: 820px) {
+    .now__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .now__head {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    position: sticky;
+    top: 6rem;
+  }
+
+  .now__title {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+
+  .now__sub {
+    color: var(--mute);
+    font-size: 0.95rem;
+    margin: 0;
+    max-width: 28ch;
+  }
+
+  .now__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .now__item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--hairline);
+    align-items: baseline;
+  }
+
+  .now__item:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  @media (max-width: 540px) {
+    .now__item {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+  }
+
+  .now__label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+  }
+
+  .now__value {
+    font-family: 'Instrument Serif', ui-serif, Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+  }
+</style>

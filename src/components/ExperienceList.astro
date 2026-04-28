@@ -1,0 +1,252 @@
+---
+const items = [
+  {
+    org: 'Motorola Solutions',
+    role: 'Product Manager · Body-Worn Cameras',
+    period: '2024 — 2026',
+    location: 'San Francisco',
+    bullets: [
+      'Led 20+ enterprise deals ($1M–$20M each) across local and federal agencies, owning workflow, customization, and security requirements.',
+      'Shipped Edge AI voice tagging—cut officer data entry time by 75% (20s → 5s) with offline-first VUI.',
+      'Retained $50M ARR through a 100+ customer End-of-Life migration with 90% retention.',
+      'Integrated C2PA standards to harden the product against deepfake manipulation.',
+    ],
+  },
+  {
+    org: 'Sensitel',
+    role: 'Product Manager Intern',
+    period: '2023',
+    location: 'Santa Clara',
+    bullets: [
+      'Validated $5M B2B asset-tracking opportunity in agriculture from 20+ supply-chain interviews.',
+      'Designed UX mockups translating raw research into a shippable MVP.',
+    ],
+  },
+  {
+    org: 'MAGICS Lab · Northeastern',
+    role: 'AI Research Engineer',
+    period: '2021 — 2023',
+    location: 'Boston',
+    bullets: [
+      'Built an open-source framework for multi-robot cooperative simulation.',
+      '95% accuracy on a human–robot collaboration task using multi-agent RL.',
+    ],
+  },
+];
+
+const education = [
+  { degree: 'MSc Engineering Management', school: 'Northeastern University', honors: 'Summa Cum Laude · 4.0' },
+  { degree: 'MSc Mechanical Engineering', school: 'TU Delft', honors: 'Cum Laude' },
+  { degree: 'BSc Industrial Engineering', school: 'University of Groningen', honors: 'Cum Laude' },
+];
+---
+
+<section class="exp">
+  <div class="wrap">
+    <div class="exp__head reveal">
+      <span class="eyebrow">A short résumé</span>
+      <h2 class="exp__title">
+        From research labs to <span class="serif-italic">product orgs.</span>
+      </h2>
+    </div>
+
+    <ul class="exp__list">
+      {items.map((item) => (
+        <li class="exp__item reveal">
+          <div class="exp__period">
+            <span>{item.period}</span>
+            <span class="exp__loc">{item.location}</span>
+          </div>
+          <div class="exp__detail">
+            <h3 class="exp__role">{item.role}</h3>
+            <p class="exp__org">{item.org}</p>
+            <ul class="exp__bullets">
+              {item.bullets.map((b) => <li>{b}</li>)}
+            </ul>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <div class="exp__edu reveal">
+      <span class="eyebrow">Education</span>
+      <ul class="exp__edu-list">
+        {education.map((e) => (
+          <li>
+            <span class="exp__edu-degree">{e.degree}</span>
+            <span class="exp__edu-school">{e.school}</span>
+            <span class="exp__edu-honors">{e.honors}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .exp {
+    padding: clamp(5rem, 9vw, 9rem) 0;
+  }
+
+  .exp__head {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+    max-width: 30ch;
+  }
+
+  .exp__title {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+
+  .exp__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .exp__item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    padding: clamp(2rem, 4vw, 3rem) 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .exp__item:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  @media (max-width: 720px) {
+    .exp__item {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .exp__period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .exp__loc {
+    color: var(--accent);
+  }
+
+  .exp__role {
+    font-family: 'Instrument Serif', ui-serif, Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.4rem 0;
+  }
+
+  .exp__org {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 1rem;
+    color: var(--ink);
+    margin: 0 0 1.25rem 0;
+  }
+
+  .exp__bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-width: 65ch;
+  }
+
+  .exp__bullets li {
+    position: relative;
+    padding-left: 1.4rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  .exp__bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 16px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .exp__edu {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding-top: clamp(2rem, 4vw, 3rem);
+    border-top: 1px solid var(--hairline);
+  }
+
+  .exp__edu .eyebrow {
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .exp__edu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .exp__edu-list li {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--hairline);
+    align-items: baseline;
+  }
+
+  .exp__edu-list li:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 720px) {
+    .exp__edu-list li {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+    }
+  }
+
+  .exp__edu-degree {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .exp__edu-school {
+    font-family: 'Instrument Serif', ui-serif, Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--mute);
+  }
+
+  .exp__edu-honors {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+</style>

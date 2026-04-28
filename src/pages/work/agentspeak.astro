@@ -1,0 +1,33 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+---
+
+<CaseStudy
+  index="02"
+  title="AgentSpeak"
+  tagline="100,000 simulated consumers, run before a single dollar of marketing spend."
+  year="2024"
+  role="Author & Researcher"
+  stack={["LangChain", "Python", "LLMs", "Statistical Evaluation", "Claude Code"]}
+  links={[
+    { label: "Visit OpenModel", href: "https://www.openmodel.co/", external: true },
+    { label: "Read paper", href: "https://www.proquest.com/openview/e45972149b297cfcec9a239dcca32bcc/1?cbl=18750&diss=y&pq-origsite=gscholar", external: true },
+  ]}
+  visualAccent="ink"
+  description="AgentSpeak is a market-simulation framework that models 100,000 consumer personas with LLMs to test policy, pricing, and messaging before launch."
+  sections={[
+    {
+      heading: "The problem.",
+      body: "Surveys are expensive, biased, and slow. A/B tests need real users—and real budgets—to learn anything. Product and policy teams need a faster, cheaper sandbox to <strong>pressure-test ideas before committing capital</strong>."
+    },
+    {
+      heading: "The approach.",
+      body: "Generate 100,000 LLM-backed personas grounded in real demographic and psychographic distributions. Run policy, pricing, or messaging interventions against the population. Then—the part most synthetic-data work skips—<strong>statistically evaluate alignment, consistency, and emergent behaviors</strong> so the results are interpretable instead of vibes-based."
+    },
+    {
+      heading: "The outcome.",
+      body: "A reusable simulation framework that lets product and policy teams ask 'what would 100k people probably do?' and get a reasoned, citable answer in hours—not weeks. The work formed the basis of a published thesis and an early commercial deployment."
+    }
+  ]}
+  next={{ title: "Motorola · Edge AI", href: "/work/motorola-edge-ai/" }}
+/>

@@ -1,0 +1,32 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+---
+
+<CaseStudy
+  index="04"
+  title="Explicit Agent"
+  tagline="Every tool call. Every state change. Visible. An agent framework that refuses to hide."
+  year="2024"
+  role="Author · Open Source"
+  stack={["Python", "LiteLLM", "OpenRouter", "State Management"]}
+  links={[
+    { label: "GitHub", href: "https://github.com/gabriansa/explicit-agent", external: true },
+  ]}
+  visualAccent="ink"
+  description="Explicit Agent is a minimalist Python framework for building agents whose logic, tool calls, and state are all visible by default."
+  sections={[
+    {
+      heading: "The problem.",
+      body: "Most agent frameworks optimize for elegance: a single decorator, hidden state, magic loops. That's great for demos and <strong>terrible for production</strong>. When something breaks at 2am, you want to read your code, not a stack trace through three libraries."
+    },
+    {
+      heading: "The approach.",
+      body: "Build the smallest possible framework where <strong>the agent loop is visible</strong>—no hidden orchestration, no implicit state, no surprising tool dispatch. Compose modular tools. Persist state explicitly. Swap models through LiteLLM or OpenRouter without rewriting the agent."
+    },
+    {
+      heading: "The outcome.",
+      body: "An open-source framework I use as the substrate for my own agent prototypes. Built on a simple hunch: in regulated or safety-critical contexts, <strong>transparency tends to age better than cleverness</strong>—because eventually someone has to answer 'why did the agent do that?'"
+    }
+  ]}
+  next={{ title: "Investi", href: "/work/investi/" }}
+/>

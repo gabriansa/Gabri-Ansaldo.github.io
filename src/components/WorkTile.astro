@@ -1,0 +1,245 @@
+---
+export interface Props {
+  index: string;
+  title: string;
+  tagline: string;
+  href: string;
+  external?: boolean;
+  year: string;
+  role: string;
+  tags: string[];
+  size?: 'lg' | 'md';
+  visualLabel?: string;
+  visualAccent?: 'accent' | 'ink' | 'canvas';
+}
+
+const {
+  index,
+  title,
+  tagline,
+  href,
+  external = false,
+  year,
+  role,
+  tags,
+  size = 'md',
+  visualLabel,
+  visualAccent = 'ink',
+} = Astro.props;
+
+const target = external ? '_blank' : undefined;
+const rel = external ? 'noopener noreferrer' : undefined;
+---
+
+<a
+  href={href}
+  target={target}
+  rel={rel}
+  class:list={['work-tile', `work-tile--${size}`, `work-tile--${visualAccent}`]}
+  data-index={index}
+>
+  <div class="work-tile__visual" aria-hidden="true">
+    <div class="work-tile__visual-inner">
+      <span class="work-tile__visual-label">{visualLabel ?? title}</span>
+      <span class="work-tile__visual-glyph">
+        {visualAccent === 'accent' ? '◆' : visualAccent === 'canvas' ? '○' : '●'}
+      </span>
+    </div>
+  </div>
+
+  <div class="work-tile__body">
+    <div class="work-tile__head">
+      <span class="work-tile__index">{index}</span>
+      <span class="work-tile__meta">
+        <span>{year}</span>
+        <span class="work-tile__sep">·</span>
+        <span>{role}</span>
+      </span>
+    </div>
+    <h3 class="work-tile__title">{title}</h3>
+    <p class="work-tile__tagline">{tagline}</p>
+    <div class="work-tile__foot">
+      <ul class="work-tile__tags">
+        {tags.map((tag) => <li>{tag}</li>)}
+      </ul>
+      <span class="work-tile__cta">
+        {external ? 'Visit' : 'Case study'}
+        <span class="arrow" aria-hidden="true">{external ? '↗' : '→'}</span>
+      </span>
+    </div>
+  </div>
+</a>
+
+<style>
+  .work-tile {
+    display: grid;
+    grid-template-rows: auto auto;
+    background: transparent;
+    border-top: 1px solid var(--hairline);
+    padding: clamp(2rem, 4vw, 3.5rem) 0;
+    transition: background 0.4s ease;
+    position: relative;
+  }
+
+  .work-tile:hover {
+    background: color-mix(in srgb, var(--accent) 4%, transparent);
+  }
+
+  .work-tile__visual {
+    aspect-ratio: 16 / 8;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.1, 1);
+  }
+
+  .work-tile:hover .work-tile__visual {
+    transform: translateY(-6px);
+  }
+
+  .work-tile--ink .work-tile__visual {
+    background: var(--ink);
+    color: var(--canvas);
+  }
+  .work-tile--accent .work-tile__visual {
+    background: var(--accent);
+    color: var(--canvas);
+  }
+  .work-tile--canvas .work-tile__visual {
+    background: var(--hairline);
+    color: var(--ink);
+  }
+
+  .work-tile__visual-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+  }
+
+  .work-tile__visual-label {
+    font-family: 'Instrument Serif', ui-serif, Georgia, serif;
+    font-style: italic;
+    font-size: clamp(2rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    max-width: 14ch;
+  }
+
+  .work-tile__visual-glyph {
+    align-self: flex-end;
+    font-size: clamp(2rem, 4vw, 3rem);
+    opacity: 0.85;
+  }
+
+  .work-tile__body {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+  }
+
+  @media (max-width: 820px) {
+    .work-tile__body {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  .work-tile__head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--mute);
+  }
+
+  .work-tile__index {
+    color: var(--accent);
+  }
+
+  .work-tile__meta {
+    display: inline-flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .work-tile__sep {
+    opacity: 0.5;
+  }
+
+  .work-tile__title {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: clamp(1.65rem, 3.4vw, 2.6rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin: 0 0 0.9rem 0;
+  }
+
+  .work-tile__tagline {
+    font-family: 'Instrument Serif', ui-serif, Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+    line-height: 1.4;
+    color: var(--mute);
+    max-width: 50ch;
+    margin: 0 0 1.6rem 0;
+  }
+
+  .work-tile__foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .work-tile__tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .work-tile__tags li {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    color: var(--mute);
+  }
+
+  .work-tile__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    transition: gap 0.25s ease, color 0.25s ease;
+  }
+
+  .work-tile:hover .work-tile__cta {
+    color: var(--accent);
+    gap: 0.85rem;
+  }
+
+  .work-tile__cta .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+---
+
+<CaseStudy
+  index="01"
+  title="Investi"
+  tagline="An autonomous trading desk built from three agents that disagree productively."
+  year="2025 — present"
+  role="Founder & Product Manager"
+  stack={["Python", "OpenAI Agents SDK", "PostgreSQL + pgvector", "LangSmith", "Alpaca API"]}
+  links={[
+    { label: "Visit tryinvesti.co", href: "https://tryinvesti.co", external: true },
+    { label: "GitHub", href: "https://github.com/gabriansa/investi", external: true },
+  ]}
+  visualAccent="accent"
+  description="Investi is an autonomous, multi-agent investing system. Researcher, Analyst, and Trader agents collaborate—and disagree—to execute logic-based strategies without human intervention."
+  sections={[
+    {
+      heading: "The problem.",
+      body: "Most retail trading tooling is either a black-box robo-advisor or a screen full of charts. There's nothing in between for someone who wants <strong>logic-based, auditable</strong> strategies that they can read, debug, and trust."
+    },
+    {
+      heading: "The approach.",
+      body: "Three agents with different jobs and the right to overrule each other. The <strong>Researcher</strong> gathers market signals. The <strong>Analyst</strong> turns them into a position thesis. The <strong>Trader</strong> sizes and executes. Every step is logged in PostgreSQL with vector search over prior decisions, and every run is traced in LangSmith—so I can replay any trade and ask, honestly, why it happened."
+    },
+    {
+      heading: "The outcome.",
+      body: "A working autonomous investing system live at <strong>tryinvesti.co</strong>, executing logic-based strategies through Alpaca with persistent memory and observable reasoning. Still very much a work in progress—next up is a Risk Officer agent with veto power over the trader."
+    }
+  ]}
+  next={{ title: "AgentSpeak", href: "/work/agentspeak/" }}
+/>

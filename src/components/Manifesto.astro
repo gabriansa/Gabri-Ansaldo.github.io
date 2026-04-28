@@ -1,0 +1,117 @@
+---
+const pillars = [
+  {
+    n: '01',
+    title: 'Ship.',
+    body: 'Frontier models are easy to demo and hard to ship. I try to spend most of my time in the boring middle—evals, edge cases, latency, fallbacks—because that\'s usually where AI products earn (or lose) their keep.',
+  },
+  {
+    n: '02',
+    title: 'Trust.',
+    body: 'Trust feels less like a feature and more like a side effect of small, honest decisions. I try to design for the moment someone asks "why did it do that?"—and make sure there\'s a real answer nearby.',
+  },
+  {
+    n: '03',
+    title: 'Transparency.',
+    body: 'Black-box agents tend to be a short-term win. Where I can, I lean toward systems that expose their reasoning, tools, and state—so teams can debug them, users can correct them, and I can sleep at night.',
+  },
+];
+---
+
+<section class="manifesto" id="approach">
+  <div class="wrap manifesto__inner">
+    <div class="manifesto__head reveal">
+      <span class="eyebrow">Approach</span>
+      <h2 class="manifesto__title">
+        A few things I keep coming back to when <span class="serif-italic">building with AI.</span>
+      </h2>
+    </div>
+    <ol class="manifesto__list">
+      {pillars.map((p) => (
+        <li class="manifesto__item reveal">
+          <div class="manifesto__num">{p.n}</div>
+          <div class="manifesto__content">
+            <h3 class="manifesto__heading">{p.title}</h3>
+            <p class="manifesto__body">{p.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .manifesto {
+    padding: clamp(5rem, 9vw, 9rem) 0;
+  }
+
+  .manifesto__head {
+    max-width: 30ch;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+
+  .manifesto__title {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+
+  .manifesto__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .manifesto__item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    padding: clamp(2rem, 4vw, 3.25rem) 0;
+    border-top: 1px solid var(--hairline);
+    align-items: start;
+  }
+
+  .manifesto__item:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  @media (max-width: 720px) {
+    .manifesto__item {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .manifesto__num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+  }
+
+  .manifesto__heading {
+    font-family: 'Instrument Serif', ui-serif, Georgia, serif;
+    font-style: italic;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin: 0 0 1rem 0;
+    color: var(--ink);
+  }
+
+  .manifesto__body {
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: 60ch;
+    margin: 0;
+  }
+</style>

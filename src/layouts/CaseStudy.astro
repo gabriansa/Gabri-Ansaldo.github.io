@@ -1,0 +1,295 @@
+---
+import Layout from './Layout.astro';
+
+export interface Section {
+  heading: string;
+  body: string;
+}
+
+export interface NextProject {
+  title: string;
+  href: string;
+  external?: boolean;
+}
+
+export interface Props {
+  index: string;
+  title: string;
+  tagline: string;
+  year: string;
+  role: string;
+  stack: string[];
+  links?: { label: string; href: string; external?: boolean }[];
+  sections: Section[];
+  next: NextProject;
+  description?: string;
+  visualAccent?: 'accent' | 'ink' | 'canvas';
+}
+
+const {
+  index,
+  title,
+  tagline,
+  year,
+  role,
+  stack,
+  links = [],
+  sections,
+  next,
+  description,
+  visualAccent = 'ink',
+} = Astro.props;
+---
+
+<Layout
+  title={`${title} — Gabri Ansaldo`}
+  description={description ?? tagline}
+>
+  <article class="case">
+    <div class="wrap">
+      <a href="/#work" class="case__back link-underline">← All work</a>
+
+      <header class="case__header reveal">
+        <span class="eyebrow">Case study {index}</span>
+        <h1 class="case__title">{title}</h1>
+        <p class="case__tagline serif-italic">{tagline}</p>
+
+        <dl class="case__meta">
+          <div>
+            <dt>Year</dt>
+            <dd>{year}</dd>
+          </div>
+          <div>
+            <dt>Role</dt>
+            <dd>{role}</dd>
+          </div>
+          <div>
+            <dt>Stack</dt>
+            <dd>{stack.join(' · ')}</dd>
+          </div>
+        </dl>
+
+        {links.length > 0 && (
+          <div class="case__links">
+            {links.map((l) => (
+              <a
+                href={l.href}
+                target={l.external ? '_blank' : undefined}
+                rel={l.external ? 'noopener noreferrer' : undefined}
+                class="btn btn-ghost"
+              >
+                {l.label}
+                <span class="arrow" aria-hidden="true">{l.external ? '↗' : '→'}</span>
+              </a>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <div class:list={['case__hero-visual', `case__hero-visual--${visualAccent}`, 'reveal']}>
+        <span class="case__hero-glyph serif-italic">{title}</span>
+      </div>
+
+      <div class="case__sections">
+        {sections.map((s) => (
+          <section class="case__section reveal">
+            <h2 class="case__heading">
+              <span class="serif-italic">{s.heading}</span>
+            </h2>
+            <p class="case__body" set:html={s.body}></p>
+          </section>
+        ))}
+      </div>
+
+      <a
+        href={next.href}
+        target={next.external ? '_blank' : undefined}
+        rel={next.external ? 'noopener noreferrer' : undefined}
+        class="case__next reveal"
+      >
+        <span class="eyebrow">Next project</span>
+        <span class="case__next-title">
+          {next.title}
+          <span class="arrow" aria-hidden="true">{next.external ? '↗' : '→'}</span>
+        </span>
+      </a>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .case {
+    padding: clamp(7rem, 12vw, 10rem) 0 clamp(4rem, 8vw, 7rem);
+  }
+
+  .case__back {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--mute);
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+  }
+
+  .case__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1100px;
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .case__title {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 400;
+    font-size: clamp(2.6rem, 8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin: 0;
+  }
+
+  .case__tagline {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    line-height: 1.35;
+    color: var(--mute);
+    max-width: 50ch;
+    margin: 0;
+  }
+
+  .case__meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem 2rem;
+    margin: 0.5rem 0 0 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--hairline);
+  }
+
+  @media (max-width: 720px) {
+    .case__meta {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .case__meta dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin: 0 0 0.4rem 0;
+  }
+
+  .case__meta dd {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .case__links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  .case__hero-visual {
+    aspect-ratio: 16 / 7;
+    border-radius: 24px;
+    margin: clamp(2.5rem, 5vw, 4rem) 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .case__hero-visual--accent { background: var(--accent); color: var(--canvas); }
+  .case__hero-visual--ink { background: var(--ink); color: var(--canvas); }
+  .case__hero-visual--canvas { background: var(--hairline); color: var(--ink); }
+
+  .case__hero-glyph {
+    font-size: clamp(3rem, 10vw, 9rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+
+  .case__sections {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    padding: clamp(2rem, 4vw, 3rem) 0;
+  }
+
+  .case__section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);
+    border-top: 1px solid var(--hairline);
+  }
+
+  @media (max-width: 720px) {
+    .case__section {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .case__heading {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .case__body {
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  .case__body :global(strong) {
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .case__next {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+    border-top: 1px solid var(--hairline);
+    transition: color 0.25s ease;
+  }
+
+  .case__next:hover {
+    color: var(--accent);
+  }
+
+  .case__next-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .case__next:hover .arrow {
+    transform: translateX(8px);
+  }
+
+  .case__next-title .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+</style>

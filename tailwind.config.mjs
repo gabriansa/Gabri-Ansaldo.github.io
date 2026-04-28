@@ -4,47 +4,44 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Dark theme colors
-        'bg': '#0a0e1a',
-        'surface': '#131827',
-        'text': '#e8eaf4',
-        'muted': '#9ca3af',
-        'accent': '#818cf8',
-        'accent-2': '#fbbf24',
-        'link': '#a78bfa',
-        'stroke': '#1e293b',
-        'focus': '#c4b5fd',
+        canvas: '#F4F1EA',
+        ink: '#0E0E0E',
+        accent: '#FF4A1C',
+        mute: '#6B6862',
+        hairline: '#D9D4C7',
+        invert: '#0E0E0E',
+        invertText: '#F4F1EA',
       },
       fontFamily: {
-        'mono': ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
-        'sans': ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+        display: ['"Instrument Serif"', 'ui-serif', 'Georgia', 'serif'],
+        sans: ['"Inter Tight"', 'Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+      },
+      fontSize: {
+        'eyebrow': ['0.78rem', { lineHeight: '1', letterSpacing: '0.14em' }],
+        'hero': ['clamp(3.25rem, 12vw, 11rem)', { lineHeight: '0.92', letterSpacing: '-0.04em' }],
+        'display': ['clamp(2.25rem, 7vw, 5.5rem)', { lineHeight: '0.98', letterSpacing: '-0.035em' }],
+        'mega': ['clamp(4rem, 18vw, 18rem)', { lineHeight: '0.85', letterSpacing: '-0.05em' }],
+        'lede': ['clamp(1.15rem, 1.8vw, 1.5rem)', { lineHeight: '1.45', letterSpacing: '-0.01em' }],
       },
       animation: {
-        'caret': 'caret 1s steps(1, end) infinite',
-        'fade-in': 'fadeIn 0.5s ease-out',
-        'slide-up': 'slideUp 0.3s ease-out',
+        'marquee': 'marquee 40s linear infinite',
+        'fade-up': 'fadeUp 0.9s cubic-bezier(0.2, 0.7, 0.1, 1) both',
       },
       keyframes: {
-        caret: {
-          '0%, 49%': { opacity: '1' },
-          '50%, 100%': { opacity: '0' }
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' }
+        fadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(28px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(10px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' }
-        }
       },
       maxWidth: {
-        'content': '880px',
+        wide: '1440px',
+        content: '1180px',
       },
-      spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
-      }
     },
   },
   plugins: [],

@@ -84,7 +84,7 @@ const ogImage = new URL(image, Astro.site || Astro.url);
           <div>
             <p class="eyebrow">Let's talk</p>
             <p class="footer-display">
-              Building something at the<br />
+              Building something at the<br class="footer-display__br" />
               edge of <span class="serif-italic">AI &amp; product?</span>
             </p>
             <a href="mailto:ansaldo.gabri@gmail.com" class="footer-email">
@@ -178,6 +178,12 @@ const ogImage = new URL(image, Astro.site || Astro.url);
         line-height: 1;
         margin: 1.4rem 0 2rem;
         letter-spacing: -0.02em;
+      }
+
+      @media (max-width: 640px) {
+        .footer-display__br {
+          display: none;
+        }
       }
 
       .footer-email {

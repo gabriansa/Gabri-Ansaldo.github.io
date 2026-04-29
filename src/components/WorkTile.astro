@@ -11,6 +11,8 @@ export interface Props {
   size?: 'lg' | 'md';
   visualLabel?: string;
   visualAccent?: 'accent' | 'ink' | 'canvas';
+  image?: string;
+  imageAlt?: string;
 }
 
 const {
@@ -25,6 +27,8 @@ const {
   size = 'md',
   visualLabel,
   visualAccent = 'ink',
+  image,
+  imageAlt,
 } = Astro.props;
 
 const target = external ? '_blank' : undefined;
@@ -38,13 +42,22 @@ const rel = external ? 'noopener noreferrer' : undefined;
   class:list={['work-tile', `work-tile--${size}`, `work-tile--${visualAccent}`]}
   data-index={index}
 >
-  <div class="work-tile__visual" aria-hidden="true">
+  <div class:list={['work-tile__visual', { 'work-tile__visual--has-image': image }]} aria-hidden="true">
     <div class="work-tile__visual-inner">
       <span class="work-tile__visual-label">{visualLabel ?? title}</span>
       <span class="work-tile__visual-glyph">
         {visualAccent === 'accent' ? '◆' : visualAccent === 'canvas' ? '○' : '●'}
       </span>
     </div>
+    {image && (
+      <img
+        class="work-tile__visual-image"
+        src={image}
+        alt={imageAlt ?? `${title} preview`}
+        loading="lazy"
+        decoding="async"
+      />
+    )}
   </div>
 
   <div class="work-tile__body">
@@ -133,6 +146,39 @@ const rel = external ? 'noopener noreferrer' : undefined;
     align-self: flex-end;
     font-size: clamp(2rem, 4vw, 3rem);
     opacity: 0.85;
+  }
+
+  .work-tile__visual-inner {
+    transition: opacity 0.45s ease;
+    z-index: 1;
+  }
+
+  .work-tile__visual-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.1, 1);
+    z-index: 0;
+  }
+
+  .work-tile:hover .work-tile__visual--has-image .work-tile__visual-image {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .work-tile:hover .work-tile__visual--has-image .work-tile__visual-inner {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .work-tile__visual-image {
+      transition: opacity 0.2s ease;
+      transform: none;
+    }
   }
 
   .work-tile__body {

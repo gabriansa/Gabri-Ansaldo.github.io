@@ -21,7 +21,7 @@ src/
   layouts/           Layout.astro · CaseStudy.astro
   pages/
     index.astro      Single-page narrative (Hero → Work → Contact)
-    work/            Case studies (investi, agentspeak, motorola-edge-ai, explicit-agent)
+    work/            Case studies (investi, openmodel, motorola-edge-ai, explicit-agent)
   styles/global.css  Design tokens, type, motion, layout primitives
 ```
 
